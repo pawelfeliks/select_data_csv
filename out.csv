@@ -1,0 +1,4 @@
+,mode,count,acousticness,artists,danceability,duration_ms,energy,instrumentalness,liveness,loudness,speechiness,tempo,valence,popularity,key
+14354,1,1,0.0907,Lele Pons,0.905,155825.0,0.6859999999999999,0.0,0.266,-3.152,0.0664,103.013,0.963,92.0,0
+15070,0,2,0.31,Los Legendarios,0.823,213314.0,0.821,4.28e-06,0.14300000000000002,-3.402,0.166,99.999,0.7909999999999999,90.0,8
+20966,0,2,0.0563,Ritt Momney,0.399,210463.0,0.491,0.0008900000000000002,0.11,-10.778,0.0538,91.066,0.151,93.0,6
