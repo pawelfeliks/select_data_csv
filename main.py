@@ -32,4 +32,4 @@ def saveToNewFile(data, filename = 'out.csv'):
 data = loadFile('data_by_artist.csv')
 filterByPopularity(data, 90)
 saveToNewFile(data)
-print('Filtering finished')
+print('\nFiltering finished!\n')
