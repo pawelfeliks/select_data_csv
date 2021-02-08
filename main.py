@@ -1,4 +1,3 @@
-from os import error
 import pandas
 
 def loadFile(filename):
@@ -9,17 +8,18 @@ def loadFile(filename):
         return None
 
 
-def filterByPopularity(filename, percentage, lessThan = False):
-    data = loadFile(filename)
+def filterByPopularity(data, percentage, lessThan = False):
+    filterData(data, 'popularity', lessThan, percentage)
+
+
+def filterData(data, filter, lessThan, percentage):
     try:
         if lessThan:
-            data.drop(data[data.popularity > percentage].index, inplace=True)
+            data.drop(data[data[filter] > percentage].index, inplace=True)
         else:
-            data.drop(data[data.popularity < percentage].index, inplace=True)
+            data.drop(data[data[filter] < percentage].index, inplace=True)
     except Exception as err:
         print(err)
-
-    return data
 
 
 def saveToNewFile(data, filename = 'out.csv'):
@@ -29,5 +29,7 @@ def saveToNewFile(data, filename = 'out.csv'):
         print(err)
 
 
-filtered = filterByPopularity('data_by_artist.csv', 90)
-saveToNewFile(filtered)
+data = loadFile('data_by_artist.csv')
+filterByPopularity(data, 90)
+saveToNewFile(data)
+print('Filtering finished')
