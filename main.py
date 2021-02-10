@@ -1,31 +1,31 @@
 import csv
+import pandas
 
 
-def open_file(path):
-
-    try:
-        f = open(path, "r", encoding="utf-8")
-        for line in f:
-            print(line, end="")
-            
-    except:
-        print("Error or no such file")
-
-
-
-def open_csv(plik):
+def open_csv(filename):
     
     try:
-        
-        with open(plik, 'r', encoding="utf-8") as file:
-            reader = csv.reader(file)
-            for row in reader:
-                print(row)
+        return pandas.read_csv(filename)
                 
-    except:
-        print("Error or no such file")
+    except Exception as err:
+        print(err)
+        return None
 
  
+def filter_by_pop(file):
+    try:
+        file.drop(file[file['popularity']<65].index, inplace=True) #usuwa wszystko ponizej 65
+        
+    except Exception as err:
+        print(err)
+        
+filecsv = "data_by_artist.csv"
+file = open_csv(filecsv) 
+filter_by_pop(file)
+# print(file)
 
-filecsv = "E:\Studia\Programowanie\Python\plik_csv.csv"
-open_csv(filecsv) 
+def save_csv(file):
+    file.to_csv('new_csv.csv')
+
+save_csv(file)
+print(file)
