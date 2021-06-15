@@ -10,7 +10,7 @@ def open_csv(filename):
 
 def filter_by_pop(file):
     try:
-        file.drop(file[file['popularity']<65].index, inplace=True) #usuwa wszystko ponizej 65
+        file.drop(file[file['popularity']<65].index, inplace=True) # delete everything below 65 index
     except Exception as err:
         print(err)
 
